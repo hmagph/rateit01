@@ -1,0 +1,145 @@
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="todoApp">
+
+<head>
+
+  <meta  content="text/html; charset=utf-8"  http-equiv="content-type">
+  <title>Notation des sessions</title>
+  <meta  http-equiv="X-UA-Compatible"  content="IE=edge">
+  <meta  name="viewport"  content="width=300, initial-scale=1">
+  <!--   <link  rel="stylesheet"  href="css/style.css"> -->
+ 
+  <!-- load bootstrap -->
+  <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/todo.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+</head>
+
+<!-- SET THE CONTROLLER -->
+
+<body ng-controller="mainController">
+
+  <div class="container">
+
+    <!-- HEADER AND TODO COUNT -->
+    <div>
+         <h1><span class="label label-info"></span> Fiche d'évaluation</h1>
+         <font  size="6"></font>
+         <h1> <img  style="width: 403px; height: 108px;" class="newappIcon" src="images/Orange_Bmx_Day.png" alt="ibm" align="middle"></h1>
+    </div>
+
+    <!-- FORM TO CREATE TODOS -->
+   <!--    <div id="todo-form" class="row"> -->
+    <!--      <div class="col-sm-8 col-sm-offset-2 text-center">  -->
+    
+    
+   <form id=ratingform data-toggle="validator" class="form-inline">
+
+                  
+    <fieldset>
+                      <p class="text-center" ng-show="loading">
+                         <span class="fa fa-spinner fa-spin fa-3x"></span>
+                      </p>
+    </fieldset>
+
+      <fieldset>
+        <legend>Saisissez vos coordonnées</legend>
+
+        <ol>
+          <li>
+            <label for=name>Nom</label>
+            <input id=name name=name type=text placeholder="Prénom et nom" autofocus>
+          </li>
+          <li>
+            <label for=email>Email</label>
+            <input id=email name=email type=email placeholder="exemple@domaine.com">
+          </li>
+        </ol>
+      </fieldset>
+
+    
+     <fieldset>
+        <legend>Evaluez les sessions</legend>
+        <ol>
+          <li>
+                                 <!-- LOOP OVER THE TODOS IN $scope.todos -->
+
+                                         
+            <fieldset ng-repeat="todo in todos track by $index">
+      
+              <legend>{{todo.text}}</legend>
+              <ol>
+              
+              <div class="btn-group">
+                <li>
+ 
+                  <input id="{{todo.text}}" name="{{todo.text}}" value="Satisfait"  ng-checked="true" type=radio>
+ 
+                  <label for="{{todo.text}}">Satisfait</label>
+                </li>
+                <li>
+                  <input id="{{todo.text}}" name="{{todo.text}}" value="Moyen" type=radio>
+                  <label for="{{todo.text}}">Moyen</label>
+                </li>
+                <li>
+                  <input id="{{todo.text}}" name="{{todo.text}}" value="Non satisfait" type=radio>
+                  <label for="{{todo.text}}">Non satisfait</label>
+                </li>
+                 </div>
+              </ol>
+       
+            </fieldset>
+          </li>
+
+        </ol>
+      </fieldset>
+      
+     <fieldset>
+        <legend>Vos commentaires & centres d'intérêt</legend>
+          <ol>
+            <li>
+              <textarea id=comments name=comments rows=5></textarea>
+            </li>
+          </ol>
+        </fieldset>
+
+      <fieldset>
+             <!-- createToDo() WILL CREATE NEW TODOS -->
+            <button type="submit"  ng-click="createTodo()">Submit</button>    
+          
+       </fieldset>   
+
+        </form>
+     <!--     </div>  -->
+    <!--      </div> -->
+     <!--   </div> -->
+    
+    <!-- SHOW OFF OUR FORMDATA OBJECT -->
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <script src="vendor/angular/angular.min.js"></script>
+  <script type = "text/javascript"  src = "vendor/jquery/dist/jquery.min.js"></script>
+  <script src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+
+  <!-- load our todo service -->
+  <script src="js/services/todo.service.js"></script>
+  <!-- load up our controller -->
+  <script src="js/controllers/todo.controller.js"></script>
+  <!-- load our main application -->
+  <script src="js/todo.js"></script>
+  
+  <script type="text/javascript" language="javascript">
+  
+window.onload=function() {
+  document.getElementById("ratingform").onsubmit=function() {
+    window.location.replace("thanks.html");
+    return false;
+  }
+}
+</script>
+</body>
+
+</html>

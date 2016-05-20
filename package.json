@@ -1,0 +1,30 @@
+{
+  "name": "cloudant_boilerplate_nodejs",
+  "version": "0.0.2",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "postinstall": "bower install --allow-root"
+  },
+  "dependencies": {
+    "express": "4.13.x",
+    "ejs": "2.4.x",
+    "cloudant": "1.4.x",
+    "body-parser": "1.14.x",
+    "method-override": "2.3.x",
+    "morgan": "1.6.x",
+    "errorhandler": "1.4.x",
+    "connect-multiparty": "2.0.x",
+    "async": "^1.5.2",
+    "body-parser": "~1.4.3",
+    "bower": "^1.7.7",
+    "cfenv": "^1.0.3",
+    "nano": "^6.2.0",
+    "serve-favicon": "^2.3.0",
+    "stringify-object": "^2.3.1"
+  },
+  "repository": {},
+  "engines": {
+  	"node": "4.x"
+  }
+}
